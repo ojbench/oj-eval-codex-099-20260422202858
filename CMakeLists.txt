@@ -7,8 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(code main.cpp)
 
-# Optimize for speed and enable reasonable warnings
+# Optimize for speed and enable reasonable warnings (avoid static link for portability)
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-  target_compile_options(code PRIVATE -O2 -pipe -static -s -Wall -Wextra -Wconversion -Wsign-conversion)
+  target_compile_options(code PRIVATE -O2 -pipe -s -Wall -Wextra)
 endif()
-
